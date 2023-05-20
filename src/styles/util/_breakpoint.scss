@@ -1,0 +1,13 @@
+@use "./functions"as *;
+
+/*!
+Mobile: 375px
+Desktop: 1440px
+*/
+$screenSize:(mobile: em(375), desktop: em(1440));
+
+@mixin breakpoint($size) {
+    @media(max-width: map-get($screenSize, $size)) {
+        @content
+    }
+}

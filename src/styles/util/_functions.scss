@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@function rem($pixel, $context: 16) {
+    // @if is-number($pixel) and unit($pixel) !=null {
+    //     @error "Size #{$pixel} is not a number.";
+    // }
+
+    @return math.div($pixel, $context)+rem;
+}
+
+@function em($pixel, $context: 16) {
+    // @if is-number($pixel) and unit($pixel) !=null {
+    //     @error "Size #{$pixel} is not a number.";
+    // }
+
+    @return math.div($pixel, $context)+em;
+}
