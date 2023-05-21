@@ -5,12 +5,14 @@
     width: 100%;
     height: rem(230);
     margin-inline: auto;
+    position: relative;
 
     &__bar {
-        &:hover{
+        &:hover {
             opacity: 0.8;
             cursor: pointer;
         }
+
         &--today {
             @extend .chart__bar;
             fill: var(--cyan);
@@ -27,5 +29,14 @@
         font-family: var(--chart-font-family);
         font-size: max(12px, rem(12));
         font-weight: 400;
+    }
+
+    &__tooltip{
+        position: absolute;
+        padding: rem(4);
+        background-color: var(--dark-brown);
+        color: var(--pale-orange);
+        border-radius: rem(4);
+        font-size: max(12px, rem(14));
     }
 }

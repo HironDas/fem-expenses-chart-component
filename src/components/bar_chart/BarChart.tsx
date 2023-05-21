@@ -75,6 +75,10 @@ function bar(props: BarProps) {
         .call(g => g.selectAll('text').attr("dx", "-0.45em").attr('class', 'chart__tick-text'));
     //svg.append('g').call(d3.axisLeft(y));
 
+    const tooltip = d3.select(props.id).append("div")
+        .attr("class", "chart__tooltip")
+        .style('opacity', 0);
+
     svg.selectAll('rect')
         .data(data)
         .enter()
@@ -86,13 +90,26 @@ function bar(props: BarProps) {
         .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.amount))
         .attr("d", item => barChartPath(item, height, x, y, barRadius, barRadius))
-        .attr("class", (d) => d.day.toLowerCase() == day[new Date().getDay()] ? 'chart__bar--today' : 'chart__bar--other-day');
+        .attr("class", (d) => d.day.toLowerCase() == day[new Date().getDay()] ? 'chart__bar--today' : 'chart__bar--other-day')
+        .on('mouseover', (event, d) => {
+            tooltip
+                .transition()
+                .duration(300)
+                .style('opacity', 1)
+                .style("left", x(d.day) + "px")
+                .style("top", y(d.amount) - 10 + "px")
+                .text("$" + d.amount);
+        }).on('mouseout', (e, d) => {
+            tooltip
+                .transition()
+                .duration(500)
+                .style('opacity', 0);
+        });
 
     return svg.node();
 }
 
 function barChartPath(item: DataType, height: number, x: d3.ScaleBand<string>, y: d3.ScaleLinear<number, number, never>, rx: number, ry: number) {
-    console.log(item);
     return `
         M${x(item.day)},${y(item.amount) + ry}
         a${rx},${ry} 0 0 1 ${rx},${-ry}
