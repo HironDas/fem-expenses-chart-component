@@ -1,18 +1,31 @@
 @use "../../styles/util"as *;
-@use "../../styles/global";
+@use "../../styles/global"as *;
 
 .chart {
     width: 100%;
-    height: rem(220);
+    height: rem(230);
     margin-inline: auto;
 
     &__bar {
+        &:hover{
+            opacity: 0.8;
+            cursor: pointer;
+        }
         &--today {
+            @extend .chart__bar;
             fill: var(--cyan);
         }
 
         &--other-day {
+            @extend .chart__bar;
             fill: var(--soft-red);
         }
+    }
+
+    &__tick-text {
+        color: var(--medium-brown);
+        font-family: var(--chart-font-family);
+        font-size: max(12px, rem(12));
+        font-weight: 400;
     }
 }

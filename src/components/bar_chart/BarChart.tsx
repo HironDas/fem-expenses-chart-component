@@ -40,10 +40,12 @@ function bar(props: BarProps) {
     // console.log(props);
     if (props.height == 0 || props.width == 0) return;
 
-    const margin = { top: 5, right: 5, bottom: 25, left: 5 };
+    const margin = { top: 25, right: 5, bottom: 25, left: 5 };
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
+
     const day = ["sun", "mon", 'tue', 'wed', 'thu', 'fri'];
+    const barRadius = 6;
 
     //d3.json("data.json").then((d: any) => console.log(d))
     //let data = fs.readFileSync("../../data.json");
@@ -67,21 +69,38 @@ function bar(props: BarProps) {
         .attr("transform", `translate( 0, ${height})`)
         .call(d3.axisBottom(x)
             .tickSize(0)
-            .tickPadding(10)
-        ).call(g=> g.selectAll(".domain").remove());
+            .tickPadding(10 + barRadius)
+        )
+        .call(g => g.selectAll(".domain").remove())
+        .call(g => g.selectAll('text').attr("dx", "-0.45em").attr('class', 'chart__tick-text'));
     //svg.append('g').call(d3.axisLeft(y));
 
     svg.selectAll('rect')
         .data(data)
         .enter()
-        .append('rect')
+        .append('path')
         //.transition()
         //.duration(1000)
-        .attr("x", (d) => x(d.day) + 5)
+        .attr("x", (d) => x(d.day))
         .attr("y", (d) => y(d.amount))
-        .attr('width', x.bandwidth() - 10)
+        .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.amount))
-        .attr("class", (d) => d.day == day[new Date().getDay()] ? 'chart__bar--today' : 'chart__bar--other-day');
+        .attr("d", item => barChartPath(item, height, x, y, barRadius, barRadius))
+        .attr("class", (d) => d.day.toLowerCase() == day[new Date().getDay()] ? 'chart__bar--today' : 'chart__bar--other-day');
 
     return svg.node();
+}
+
+function barChartPath(item: DataType, height: number, x: d3.ScaleBand<string>, y: d3.ScaleLinear<number, number, never>, rx: number, ry: number) {
+    console.log(item);
+    return `
+        M${x(item.day)},${y(item.amount) + ry}
+        a${rx},${ry} 0 0 1 ${rx},${-ry}
+        h${x.bandwidth() - 4 * rx}
+        a${rx},${ry} 0 0 1 ${rx},${ry}
+        v${height - y(item.amount) - ry}
+        a${rx},${ry} 0 0 1 ${-rx},${ry}
+        h${4 * rx - x.bandwidth()}
+        a${rx},${ry} 0 0 1 ${-rx},${-ry}Z
+      `;
 }
