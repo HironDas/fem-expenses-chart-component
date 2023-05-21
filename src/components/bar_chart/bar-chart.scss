@@ -1,7 +1,18 @@
-@use "../../styles/util" as *;
+@use "../../styles/util"as *;
+@use "../../styles/global";
 
-.chart{
+.chart {
     width: 100%;
     height: rem(220);
     margin-inline: auto;
+
+    &__bar {
+        &--today {
+            fill: var(--cyan);
+        }
+
+        &--other-day {
+            fill: var(--soft-red);
+        }
+    }
 }
