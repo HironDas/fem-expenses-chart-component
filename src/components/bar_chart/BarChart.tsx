@@ -96,9 +96,9 @@ function bar(props: BarProps) {
                 .transition()
                 .duration(300)
                 .style('opacity', 1)
-                .style("left", x(d.day) + "px")
+                .style("left", x(d.day) + x.bandwidth() / 2 - 26 + "px")
                 .style("top", y(d.amount) - 10 + "px")
-                .text("$" + d.amount);
+                .text("$" + d.amount.toFixed(2));
         }).on('mouseout', (e, d) => {
             tooltip
                 .transition()
