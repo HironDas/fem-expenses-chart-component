@@ -1,0 +1,19 @@
+@use "../../styles/global";
+@use "../../styles/util" as *;
+
+.card {
+    background-color: var(--pale-orange);
+    padding: rem(15);
+    border-radius: rem(7);
+
+    &--focus {
+        background-color: var(--soft-red);
+    }
+
+    &__title, &__subtitle{
+        color: var(--dark-brown);
+        &--focus{
+            color: var(--pale-orange);
+        }
+    }
+}

@@ -36,7 +36,7 @@ export default function BarChart() {
 }
 
 function bar(props: BarProps) {
-    d3.selectAll("svg").remove();
+    d3.selectAll(props.id+" svg").remove();
     // console.log(props);
     if (props.height == 0 || props.width == 0) return;
 
