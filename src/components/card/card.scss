@@ -1,19 +1,66 @@
 @use "../../styles/global";
-@use "../../styles/util" as *;
+@use "../../styles/util"as *;
+
+
+.wrapper {
+    min-width: clamp(rem(300), 100%, rem(550));
+    padding-inline: rem(15);
+    margin-bottom: rem(30);
+}
 
 .card {
-    background-color: var(--pale-orange);
-    padding: rem(15);
-    border-radius: rem(7);
+    background-color: #fff;
+    padding: rem(25);
+    border-radius: rem(16);
+    width: 100%;
 
     &--focus {
         background-color: var(--soft-red);
+        background-image: url(../../images/logo.svg);
+        background-repeat: no-repeat;
+        background-position: center right rem(30);
+        // background-attachment: fixed;
     }
 
-    &__title, &__subtitle{
+    &__title {
         color: var(--dark-brown);
-        &--focus{
+
+        &--big{
+            font-size: rem(45);
+            line-height: 1;
+            // font-weight: 900;
+        }
+
+        &--focus {
             color: var(--pale-orange);
         }
     }
+
+    &__subtitle {
+        color: var(--medium-brown);
+
+        &--focus {
+            color: var(--pale-orange);
+        }
+    }
+
+    &__footer {
+        padding-top: rem(25);
+        padding-bottom: rem(8);
+        border-top: rem(1) solid var(--cream);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    &__chart{
+        padding-block: rem(30);
+    }
+
+    &__bold-text{
+        font-weight: 700;
+        text-align: right;
+    }
+
 }

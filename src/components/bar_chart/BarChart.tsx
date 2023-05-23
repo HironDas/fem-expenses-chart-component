@@ -17,14 +17,14 @@ export default function BarChart() {
     }), { defer: true });
 
     const handler = () => {
-        console.count("I am here");
+        // console.count("I am here");
         setSize({ width: chartRef.clientWidth, height: chartRef.clientHeight })
     }
 
     onMount(() => {
+        window.addEventListener('resize', handler);
         handler();
         //document.getElementById("bar-chart").addEventListener('resize', handler);
-        window.addEventListener('resize', handler);
     })
 
     onCleanup(() => {
@@ -45,7 +45,7 @@ function bar(props: BarProps) {
     const height = props.height - margin.top - margin.bottom;
 
     const day = ["sun", "mon", 'tue', 'wed', 'thu', 'fri'];
-    const barRadius = 6;
+    const barRadius = 5;
 
     //d3.json("data.json").then((d: any) => console.log(d))
     //let data = fs.readFileSync("../../data.json");

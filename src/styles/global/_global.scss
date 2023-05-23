@@ -22,3 +22,15 @@ html{
 img{
     max-width: 100%;
 }
+
+body{
+    background-color: var(--pale-orange);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    flex-direction: column;
+}
