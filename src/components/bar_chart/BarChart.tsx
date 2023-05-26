@@ -11,6 +11,7 @@ export default function BarChart() {
     const [size, setSize] = createSignal({ width: 0, height: 0 });
 
     createEffect(on(size, (size) => {
+        console.log(size);
         const timer = setTimeout(() => bar({ id: "#bar-chart", ...size }), 0);
 
         onCleanup(() => clearTimeout(timer));
@@ -18,6 +19,7 @@ export default function BarChart() {
 
     const handler = () => {
         // console.count("I am here");
+        // console.log(chartRef);
         setSize({ width: chartRef.clientWidth, height: chartRef.clientHeight })
     }
 
