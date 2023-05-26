@@ -16,7 +16,7 @@ const App: Component = () => {
   return (
     <>
 
-      <div class="container">
+      <section class="container">
         <div class='wrapper'>
           <Card focused >
             <h2 class="card__subtitle card__subtitle--focus">My balance</h2>
@@ -45,7 +45,7 @@ const App: Component = () => {
           </Card>
         </div>
 
-      </div>
+      </section>
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
