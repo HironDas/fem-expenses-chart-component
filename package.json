@@ -2,7 +2,7 @@
   "name": "vite-template-solid",
   "version": "0.0.0",
   "description": "",
-  "homepage": "http://hirondas.github.io/fem-expenses-chart-component",
+  "homepage": "https://hirondas.github.io/fem-expenses-chart-component",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
