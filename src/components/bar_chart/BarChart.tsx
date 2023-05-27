@@ -46,7 +46,7 @@ function bar(props: BarProps) {
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
 
-    const day = ["sun", "mon", 'tue', 'wed', 'thu', 'fri'];
+    const day = ["sun", "mon", 'tue', 'wed', 'thu', 'fri', 'sat'];
     const barRadius = 5;
 
     //d3.json("data.json").then((d: any) => console.log(d))
