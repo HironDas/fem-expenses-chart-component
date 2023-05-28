@@ -19,13 +19,13 @@ const App: Component = () => {
       <section class="container">
         <div class='wrapper'>
           <Card focused >
-            <h2 role="banner" class="card__subtitle card__subtitle--focus">My balance</h2>
-            <h1 role="banner" class="card__title card__title--focus">$921.48</h1>
+            <h2 class="card__subtitle card__subtitle--focus">My balance</h2>
+            <h1 class="card__title card__title--focus">$921.48</h1>
           </Card>
         </div>
         <div class='wrapper'>
           <Card>
-            <h1 role="banner" class="card__title">Spending - Last 7 days</h1>
+            <h1 class="card__title">Spending - Last 7 days</h1>
             <div class="card__chart">
               <BarChart />
             </div>
