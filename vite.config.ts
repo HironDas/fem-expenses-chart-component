@@ -3,7 +3,7 @@ import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
   plugins: [solidPlugin()],
-  base: "fem-expenses-chart-component",
+  base: "/fem-expenses-chart-component",
   server: {
     port: 3000,
   },
