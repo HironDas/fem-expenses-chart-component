@@ -25,7 +25,7 @@ const App: Component = () => {
         </div>
         <div class='wrapper'>
           <Card>
-            <h1 class="card__title">Spending - Last 7 days</h1>
+            <h1 role="banner" class="card__title">Spending - Last 7 days</h1>
             <div class="card__chart">
               <BarChart />
             </div>

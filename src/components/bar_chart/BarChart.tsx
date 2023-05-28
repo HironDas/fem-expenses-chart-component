@@ -79,6 +79,7 @@ function bar(props: BarProps) {
 
     const tooltip = d3.select(props.id).append("div")
         .attr("class", "chart__tooltip")
+        .attr("role","tooltip")
         .style('opacity', 0);
 
     svg.selectAll('rect')
