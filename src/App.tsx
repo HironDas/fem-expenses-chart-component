@@ -19,8 +19,8 @@ const App: Component = () => {
       <section class="container">
         <div class='wrapper'>
           <Card focused >
-            <h2 class="card__subtitle card__subtitle--focus">My balance</h2>
-            <h1 class="card__title card__title--focus">$921.48</h1>
+            <h2 role="banner" class="card__subtitle card__subtitle--focus">My balance</h2>
+            <h1 role="banner" class="card__title card__title--focus">$921.48</h1>
           </Card>
         </div>
         <div class='wrapper'>
@@ -29,7 +29,7 @@ const App: Component = () => {
             <div class="card__chart">
               <BarChart />
             </div>
-            <div class="card__footer">
+            <div class="card__footer" role="main">
               <div>
                 <h2 class="card__subtitle">Total this month</h2>
                 <h1 class="card__title card__title--big">${total()}</h1>
@@ -46,12 +46,12 @@ const App: Component = () => {
         </div>
 
       </section>
-      <div class="attribution">
+      <footer class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
         >. Coded by <a href="mailto:hcdas.09@gmail.com">Hiron Das</a>.
-      </div>
+      </footer>
     </>
   );
 };
