@@ -44,6 +44,7 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
+- d3js
 - SASS
 - [BEM METHODOLOGY](https://en.bem.info/methodology/) - A component-based approach for styling pages
 - Flexbox
