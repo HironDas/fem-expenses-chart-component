@@ -5,6 +5,10 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-a11y",
+    "storybook-addon-pseudo-states",
+    // "aria-live-storybook-addon",
+    "addon-screen-reader"
   ],
   framework: {
     name: "storybook-solidjs-vite",

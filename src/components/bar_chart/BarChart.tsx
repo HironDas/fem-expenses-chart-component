@@ -38,7 +38,7 @@ export default function BarChart() {
 }
 
 function bar(props: BarProps) {
-    d3.selectAll(props.id+" svg").remove();
+    d3.selectAll(props.id + " svg").remove();
     // console.log(props);
     if (props.height == 0 || props.width == 0) return;
 
@@ -74,12 +74,14 @@ function bar(props: BarProps) {
             .tickPadding(10 + barRadius)
         )
         .call(g => g.selectAll(".domain").remove())
+        .call(g => g.selectAll("line").remove())
         .call(g => g.selectAll('text').attr("dx", "-0.45em").attr('class', 'chart__tick-text'));
+
     //svg.append('g').call(d3.axisLeft(y));
 
     const tooltip = d3.select(props.id).append("div")
         .attr("class", "chart__tooltip")
-        .attr("role","tooltip")
+        .attr("role", "tooltip")
         .attr("title", "Amount")
         .style('opacity', 0);
 

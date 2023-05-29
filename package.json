@@ -9,11 +9,12 @@
     "serve": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "predeploy":"npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "license": "MIT",
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.0.18",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
@@ -23,6 +24,7 @@
     "react-dom": "^18.2.0",
     "sass": "^1.58.0",
     "storybook": "^7.0.12",
+    "storybook-addon-pseudo-states": "^2.0.1",
     "storybook-solidjs": "^1.0.0-beta.2",
     "storybook-solidjs-vite": "^1.0.0-beta.2",
     "typescript": "^4.9.5",
