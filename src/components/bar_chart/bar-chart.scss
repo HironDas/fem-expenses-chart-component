@@ -29,6 +29,7 @@
         font-family: var(--chart-font-family);
         font-size: max(14px, rem(14));
         font-weight: 400;
+        user-select: none;
     }
 
     &__tooltip{
@@ -38,5 +39,6 @@
         color: var(--pale-orange);
         border-radius: rem(4);
         font-size: max(12px, rem(14));
+        user-select: none;
     }
 }
